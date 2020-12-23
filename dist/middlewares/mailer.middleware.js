@@ -13,21 +13,18 @@ const path = require("path");
 const nodemailer = require("nodemailer");
 let Mailer = class Mailer {
     async send(data, url) {
-        console.log({
-            user: process.env.HOST_MAIL,
-            pass: process.env.PASS_MAIL,
-        });
         const transporter = await nodemailer.createTransport({
             pool: true,
             service: 'Gmail',
+            host: 'smtp.gmail.com',
             auth: {
-                user: process.env.HOST_MAIL,
-                pass: process.env.PASS_MAIL,
+                user: process.env.HOST_MAIL || 'camnhung111777@gmail.com',
+                pass: process.env.PASS_MAIL || 'nhung123',
             },
         });
         const email = new Email({
             message: {
-                from: process.env.HOST_MAIL,
+                from: process.env.HOST_MAIL || 'camnhung111777@gmail.com',
             },
             send: true,
             transport: transporter,

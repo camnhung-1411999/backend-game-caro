@@ -21,7 +21,7 @@
     "ts-jest": "^26.4.3"
   },
   "scripts": {
-    "dev": "nodemon",
+    "dev": "NODE_DEV=production nodemon",
     "build": "tsc",
     "start:dev": "nest start --watch",
     "start": "nest start",

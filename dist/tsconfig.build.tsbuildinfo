@@ -1862,7 +1862,7 @@
         "affectsGlobalScope": false
       },
       "../src/middlewares/mailer.middleware.ts": {
-        "version": "bbe2d5c723184ed26f38651ab3cdfe4bdede2e66b845e1ad4e0d67c7501482f4",
+        "version": "acb1e8ae00b7c3f78f62c3276ff08a9bf5ba3205ea01f82b016a01b014817e5b",
         "signature": "545861be85e47d8b8f73d2b600c56687426291568776980740841efeb2052f9a",
         "affectsGlobalScope": false
       },

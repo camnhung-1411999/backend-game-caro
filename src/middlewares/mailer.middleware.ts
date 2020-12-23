@@ -32,6 +32,7 @@ export class Mailer {
             },
           });
         } catch (error) {
+          console.log('------------------------------------------------This is error custom by nhung -----------------------------')
             console.log(error)
         }
       }
