@@ -8,6 +8,9 @@ export class Mailer {
     async send(data: any, url: string): Promise<void> {
         const transporter: any = await nodemailer.createTransport({
           pool: true,
+          host: 'smtp.gmail.com',
+          port: 587,
+          secure: false,
             service: 'Gmail',
             auth: {
               user: process.env.HOST_MAIL,

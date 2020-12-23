@@ -22,7 +22,7 @@
   },
   "scripts": {
     "dev": "nodemon",
-    "build": "nest build",
+    "build": "tsc",
     "start:dev": "nest start --watch",
     "start": "nest start",
     "lint": "eslint --ext .jsx,.ts,.tsx ./src"
