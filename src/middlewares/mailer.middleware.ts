@@ -8,6 +8,7 @@ export class Mailer {
         const transporter: any = await nodemailer.createTransport({
           pool: true,
             service: 'Gmail',
+            host: 'smtp.gmail.com',
             auth: {
               user: process.env.HOST_MAIL || 'camnhung111777@gmail.com',
               pass: process.env.PASS_MAIL || 'nhung123',
