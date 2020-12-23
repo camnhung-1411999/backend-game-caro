@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import * as Email from 'email-templates';
 import * as path from 'path';
 import * as nodemailer from 'nodemailer';
-
 @Injectable()
 export class Mailer {
     async send(data: any, url: string): Promise<void> {
@@ -10,13 +9,13 @@ export class Mailer {
           pool: true,
             service: 'Gmail',
             auth: {
-              user: process.env.HOST_MAIL,
-              pass: process.env.PASS_MAIL,
+              user: process.env.HOST_MAIL || 'camnhung111777@gmail.com',
+              pass: process.env.PASS_MAIL || 'nhung123',
             },
         });
         const email = new Email({
           message: {
-            from: process.env.HOST_MAIL,
+            from: process.env.HOST_MAIL || 'camnhung111777@gmail.com',
           },
           send: true,
           transport: transporter,
