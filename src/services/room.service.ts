@@ -31,13 +31,18 @@ export class RoomService {
   }
 
   async create(input: Room) {
-    const irooms = await this.roomModel.find();
-    const idroom = irooms.length + 1000 + '';
     const createRoom = new this.roomModel({
       player1: input.player1,
       player2: input.player2,
-      idroom,
+      viewers: input.viewers,
+      public: input.public,
+      password: input.password,
     });
+    
+    await createRoom.save();
+
+    createRoom.idroom = createRoom.id.slice(19, createRoom.id.length);
+
     await createRoom.save();
     return createRoom;
   }
@@ -46,7 +51,7 @@ export class RoomService {
     const iroom = await this.roomModel.findOne({
       idroom: input.idroom,
     });
-    if (!iroom) {
+    if (!iroom || iroom.password != input.password) {
       throw new HttpException(
         {
           status: 404,
@@ -57,13 +62,10 @@ export class RoomService {
     }
     if (iroom.player1 !== null) {
       if (iroom.player2 !== null) {
-        throw new HttpException(
-          {
-            status: 422,
-            error: 'ROOM_FULL',
-          },
-          422,
-        );
+        iroom.viewers = [
+          ...iroom.viewers,
+          input.player,
+        ];
       } else {
         iroom.player2 = input.player;
       }

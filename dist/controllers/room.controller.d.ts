@@ -5,7 +5,7 @@ export declare class RoomController {
     constructor(appService: RoomService);
     list(): any;
     getRoom(idroom: string): any;
-    create(req: any): Promise<Room>;
-    join(idroom: string, req: any): Promise<any>;
+    create(req: any, input: any): Promise<Room>;
+    join(idroom: string, req: any, input: any): Promise<any>;
     out(idroom: string, req: any): Promise<any>;
 }

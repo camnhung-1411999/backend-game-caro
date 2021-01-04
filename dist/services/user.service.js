@@ -94,6 +94,9 @@ let UserService = class UserService {
             await find.save();
             const payload = { user: input.user };
             return {
+                name: find.name,
+                user: find.user,
+                image: find.image,
                 accessToken: this.jwtService.sign(payload),
                 refreshToken: this.jwtService.sign(payload),
             };
@@ -149,12 +152,24 @@ let UserService = class UserService {
         const users = await this.userModel.find();
         let usersOnline = users
             .filter((user) => user.status && user.role === 'user')
-            .map((user) => ({ username: user.user, name: user.name }));
+            .map((user) => ({
+            username: user.user,
+            name: user.name,
+            image: user.image,
+        }));
         return usersOnline;
     }
     async getAllUsers() {
         const users = await this.userModel.find();
         const listUser = users.filter((user) => user.role === 'user');
+        return listUser;
+    }
+    async getListRank() {
+        const users = await this.userModel.find();
+        const listUser = users
+            .filter((user) => user.role === 'user')
+            .map((user) => ({ name: user.name, image: user.image, cups: user.cups }))
+            .sort((user1, user2) => user2.cups - user1.cups);
         return listUser;
     }
 };

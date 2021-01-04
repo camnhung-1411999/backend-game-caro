@@ -9,6 +9,9 @@ export declare class UserService {
     postUsers(input: User): Promise<IUser>;
     create(input: User): Promise<IUser>;
     login(input: any): Promise<{
+        name: string;
+        user: string;
+        image: string;
         accessToken: string;
         refreshToken: string;
     }>;
@@ -16,6 +19,12 @@ export declare class UserService {
     getOnlineUsers(): Promise<{
         username: string;
         name: string;
+        image: string;
     }[]>;
     getAllUsers(): Promise<IUser[]>;
+    getListRank(): Promise<{
+        name: string;
+        image: string;
+        cups: number;
+    }[]>;
 }

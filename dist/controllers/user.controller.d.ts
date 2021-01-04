@@ -18,4 +18,5 @@ export declare class UserController {
     loginSocial(input: User): Promise<any>;
     update(input: any, req: any, file: any): Promise<any>;
     logout(req: any): Promise<any>;
+    getRankUsers(): any;
 }

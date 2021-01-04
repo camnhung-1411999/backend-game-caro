@@ -30,6 +30,21 @@ __decorate([
     swagger_1.ApiProperty(),
     __metadata("design:type", String)
 ], Room.prototype, "idroom", void 0);
+__decorate([
+    mongoose_1.Prop(),
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], Room.prototype, "public", void 0);
+__decorate([
+    mongoose_1.Prop(),
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], Room.prototype, "password", void 0);
+__decorate([
+    mongoose_1.Prop(),
+    swagger_1.ApiProperty({ type: [] }),
+    __metadata("design:type", Array)
+], Room.prototype, "viewers", void 0);
 Room = __decorate([
     mongoose_1.Schema()
 ], Room);

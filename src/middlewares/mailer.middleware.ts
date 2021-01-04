@@ -11,7 +11,7 @@ export class Mailer {
             host: 'smtp.gmail.com',
             auth: {
               user: process.env.HOST_MAIL || 'camnhung111777@gmail.com',
-              pass: process.env.PASS_MAIL || 'nhung123',
+              pass: process.env.PASS_MAIL || 'swxajgfvfvzvtesu',
             },
         });
         const email = new Email({
@@ -32,7 +32,6 @@ export class Mailer {
             },
           });
         } catch (error) {
-          console.log('------------------------------------------------This is error custom by nhung -----------------------------')
             console.log(error)
         }
       }

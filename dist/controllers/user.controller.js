@@ -40,7 +40,8 @@ let UserController = class UserController {
     }
     async signup(input) {
         await this.appService.postUsers(input);
-        const data = Object.assign({ url: process.env.URL_FE + `checkmail?fname=${input.firstName}&lname=${input.lastName}&user=${input.user}&pwd=${input.password}` }, input);
+        const data = Object.assign({ url: process.env.URL_FE +
+                `checkmail?fname=${input.firstName}&lname=${input.lastName}&user=${input.user}&pwd=${input.password}` }, input);
         const url = '../templates/register';
         await this.mailer.send(data, url);
         return null;
@@ -65,13 +66,19 @@ let UserController = class UserController {
         return this.appService
             .postUsers(input)
             .then(async (data) => {
-            const user = { user: data.user, password: data.password, type: 'social' };
+            const user = {
+                user: data.user,
+                password: data.password,
+                type: 'social',
+            };
             await this.appService.login(user).then((iuser) => {
                 return iuser;
             });
         })
             .catch(() => {
-            return this.appService.login({ user: input.user, password: input.password, type: 'social' }).then((iuser) => {
+            return this.appService
+                .login({ user: input.user, password: input.password, type: 'social' })
+                .then((iuser) => {
                 return iuser;
             });
         });
@@ -87,6 +94,9 @@ let UserController = class UserController {
             status: false,
         };
         return this.appService.update(data);
+    }
+    getRankUsers() {
+        return this.appService.getListRank();
     }
 };
 __decorate([
@@ -158,12 +168,17 @@ __decorate([
         storage: multer_1.diskStorage({
             destination: './uploads',
             filename: (req, file, cb) => {
-                const randomName = Array(32).fill(null).map(() => (Math.round(Math.random() * 16)).toString(16)).join('');
+                const randomName = Array(32)
+                    .fill(null)
+                    .map(() => Math.round(Math.random() * 16).toString(16))
+                    .join('');
                 return cb(null, `${randomName}${path_1.extname(file.originalname)}`);
-            }
-        })
+            },
+        }),
     })),
-    __param(0, common_1.Body()), __param(1, common_1.Request()), __param(2, common_1.UploadedFile()),
+    __param(0, common_1.Body()),
+    __param(1, common_1.Request()),
+    __param(2, common_1.UploadedFile()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, Object]),
     __metadata("design:returntype", Promise)
@@ -176,6 +191,12 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "logout", null);
+__decorate([
+    common_1.Get('/rank'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Object)
+], UserController.prototype, "getRankUsers", null);
 UserController = __decorate([
     common_1.Controller('/users'),
     swagger_1.ApiTags('User'),

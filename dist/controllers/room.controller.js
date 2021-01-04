@@ -27,18 +27,22 @@ let RoomController = class RoomController {
     getRoom(idroom) {
         return this.appService.getRoom(idroom);
     }
-    create(req) {
+    create(req, input) {
         const data = {
             player1: req.user.user,
             player2: null,
             idroom: null,
+            public: input.public,
+            password: input.public ? input.password : null,
+            viewers: [],
         };
         return this.appService.create(data);
     }
-    join(idroom, req) {
+    join(idroom, req, input) {
         const data = {
             idroom,
             player: req.user.user,
+            password: input.password
         };
         return this.appService.join(data);
     }
@@ -66,17 +70,17 @@ __decorate([
 __decorate([
     common_1.Post('/create'),
     common_1.UseGuards(user_guard_1.JwtAuthGuard),
-    __param(0, common_1.Request()),
+    __param(0, common_1.Request()), __param(1, common_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", Promise)
 ], RoomController.prototype, "create", null);
 __decorate([
-    common_1.Put('/join/:id'),
+    common_1.Post('/join/:id'),
     common_1.UseGuards(user_guard_1.JwtAuthGuard),
-    __param(0, common_1.Param('id')), __param(1, common_1.Request()),
+    __param(0, common_1.Param('id')), __param(1, common_1.Request()), __param(2, common_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:paramtypes", [String, Object, Object]),
     __metadata("design:returntype", Promise)
 ], RoomController.prototype, "join", null);
 __decorate([

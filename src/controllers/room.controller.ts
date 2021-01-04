@@ -22,21 +22,25 @@ export class RoomController {
 
   @Post('/create')
   @UseGuards(JwtAuthGuard)
-  create(@Request() req): Promise<Room> {
-    const data = {
+  create(@Request() req, @Body() input): Promise<Room> {
+    const data : any = {
         player1: req.user.user,
         player2: null,
         idroom: null,
+        public: input.public,
+        password: input.public ? input.password: null,
+        viewers: [],
     }
     return this.appService.create(data);
   }
 
-  @Put('/join/:id')
+  @Post('/join/:id')
   @UseGuards(JwtAuthGuard)
-  join(@Param('id') idroom: string, @Request() req): Promise<any> {
+  join(@Param('id') idroom: string, @Request() req, @Body() input): Promise<any> {
     const data = {
         idroom,
         player: req.user.user,
+        password: input.password
     }
     return this.appService.join(data);
   }
