@@ -27,4 +27,5 @@ export class HistoryController {
     create(@Body() input: History): Promise<History>{
         return this.appService.create(input);
     }
+
 }

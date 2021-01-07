@@ -19,6 +19,7 @@ export class HistoryService {
         console.log('create history data',input);
         // haven't handle input exist roomid
         const createHistory = new this.historyModel({
+            roomId: input.roomId,
             result: input.result,
             winner: input.winner,
             loser: input.loser,
@@ -44,5 +45,5 @@ export class HistoryService {
         return history;
 
     }
+
 }
-//bánh ơi cái này lưu chưa, bánh nhấn save
