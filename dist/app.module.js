@@ -13,6 +13,9 @@ const user_module_1 = require("./modules/user.module");
 const room_module_1 = require("./modules/room.module");
 const history_module_1 = require("./modules/history.module");
 const config_1 = require("@nestjs/config");
+const room_socket_module_1 = require("./socket/room/room.socket.module");
+const user_socket_module_1 = require("./socket/user/user.socket.module");
+const game_module_1 = require("./modules/game.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -22,7 +25,10 @@ AppModule = __decorate([
             mongoose_1.MongooseModule.forRoot("mongodb+srv://camnhung:camnhung123@cluster0.wj4cd.mongodb.net/FinalWeb?retryWrites=true&w=majority"),
             user_module_1.UserModule,
             room_module_1.RoomModule,
-            history_module_1.HistoryModule
+            history_module_1.HistoryModule,
+            room_socket_module_1.RoomSocketModule,
+            user_socket_module_1.UserSocketModule,
+            game_module_1.GameModule
         ],
     })
 ], AppModule);

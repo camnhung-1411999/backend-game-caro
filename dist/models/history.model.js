@@ -18,6 +18,11 @@ let History = class History {
 __decorate([
     mongoose_1.Prop(),
     swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], History.prototype, "roomId", void 0);
+__decorate([
+    mongoose_1.Prop(),
+    swagger_1.ApiProperty(),
     __metadata("design:type", Array)
 ], History.prototype, "result", void 0);
 __decorate([

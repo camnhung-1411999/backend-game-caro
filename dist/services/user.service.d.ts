@@ -12,6 +12,7 @@ export declare class UserService {
         name: string;
         user: string;
         image: string;
+        role: string;
         accessToken: string;
         refreshToken: string;
     }>;

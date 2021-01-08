@@ -29,6 +29,7 @@ let HistoryService = class HistoryService {
         const createdDate = moment(Date.now()).format("DD-MM-YYYY HH:mm:ss");
         console.log('create history data', input);
         const createHistory = new this.historyModel({
+            roomId: input.roomId,
             result: input.result,
             winner: input.winner,
             loser: input.loser,
