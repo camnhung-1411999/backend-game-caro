@@ -1,4 +1,5 @@
 import {
+  Param,
   Body,
   Controller,
   Get,
@@ -29,7 +30,7 @@ export class UserController {
   ) {}
 
   @Get('/list')
-  getAllUsers(): any {
+  getAllUsers(@Request() req: any): any {
     return this.appService.getAllUsers();
   }
 
@@ -39,8 +40,20 @@ export class UserController {
     return this.appService.find(req.user.user);
   }
 
+  @Get('/:id')
+  getUserById(@Param('id') id: string): Promise<User> {
+    return this.appService.findSingleById(id);
+  }
+
+
+  @Get('/refresh')
+  @UseGuards(JwtAuthGuard)
+  refreshToken(@Request() req): any {
+    return this.appService.refreshToken(req.user.user)
+  }
+
   @Get('/online')
-  getOnlineUsers(): any {
+  getOnlineUsers(@Request() req: any): any {
     return this.appService.getOnlineUsers();
   }
 
@@ -80,6 +93,11 @@ export class UserController {
     return this.appService.update(input);
   }
 
+  @Put('/block')
+  blockUser(@Body() input: any): Promise<User> {
+    return this.appService.update(input);
+  }
+
   @Post('/login')
   // @UseGuards(LocalAuthGuard)
   login(@Body() input: any): Promise<any> {
@@ -89,20 +107,15 @@ export class UserController {
   @Post('/social')
   loginSocial(@Body() input: User): Promise<any> {
     return this.appService
-      .postUsers(input)
+      .create (input)
       .then(async (data) => {
-        const user = {
-          user: data.user,
-          password: data.password,
-          type: 'social',
-        };
-        await this.appService.login(user).then((iuser) => {
+        await this.appService.refreshToken(data.user).then((iuser) => {
           return iuser;
         });
       })
       .catch(() => {
         return this.appService
-          .login({ user: input.user, password: input.password, type: 'social' })
+          .refreshToken(input.user)
           .then((iuser) => {
             return iuser;
           });
@@ -134,7 +147,7 @@ export class UserController {
     const image = await this.cloudinary.upload(file);
     const data = {
       user: req.user.user,
-      image: image.url,
+      image: image?.url,
       ...input,
     };
     return this.appService.update(data);
@@ -151,7 +164,7 @@ export class UserController {
   }
 
   @Get('/rank')
-  getRankUsers(): any {
+  getRankUsers(@Request() req: any): any {
     return this.appService.getListRank();
   }
 }

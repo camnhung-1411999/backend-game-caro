@@ -13,7 +13,7 @@ export class Game {
 
     @Prop()
     @ApiProperty()
-    result: [];
+    board: [];
 
     @Prop({type: String, ref: User.name})
     @ApiProperty()
@@ -25,12 +25,11 @@ export class Game {
 
     @Prop()
     @ApiProperty()
-    datetime: string;
+    datetime: Date;
 
     @Prop()
     @ApiProperty()
-    chat: [];
-
+    playing: boolean;
 
 }
 export const gameSchema = SchemaFactory.createForClass(Game);
