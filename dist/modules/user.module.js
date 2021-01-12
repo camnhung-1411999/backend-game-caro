@@ -59,7 +59,6 @@ UserModule = __decorate([
                 }]), passport_1.PassportModule,
             jwt_1.JwtModule.register({
                 secret: constant_1.jwtConstants.secret,
-                signOptions: { expiresIn: '2h' },
             }),],
         controllers: [user_controller_1.UserController],
         providers: [user_service_1.UserService, auth_middleware_1.JwtStrategy, user_guard_1.JwtAuthGuard, auth_guard_1.LocalAuthGuard, mailer_middleware_1.Mailer, cloudinary_service_1.CloudinaryService, cloudinary_provider_1.CloudinaryProvider],

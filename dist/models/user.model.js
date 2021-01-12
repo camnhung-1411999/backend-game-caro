@@ -60,8 +60,13 @@ __decorate([
     swagger_1.ApiProperty(),
     __metadata("design:type", Number)
 ], User.prototype, "cups", void 0);
+__decorate([
+    mongoose_1.Prop(),
+    swagger_1.ApiProperty(),
+    __metadata("design:type", Boolean)
+], User.prototype, "block", void 0);
 User = __decorate([
-    mongoose_1.Schema()
+    mongoose_1.Schema({ timestamps: true })
 ], User);
 exports.User = User;
 exports.userSchema = mongoose_1.SchemaFactory.createForClass(User);

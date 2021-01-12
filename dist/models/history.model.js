@@ -40,11 +40,6 @@ __decorate([
     swagger_1.ApiProperty(),
     __metadata("design:type", String)
 ], History.prototype, "datetime", void 0);
-__decorate([
-    mongoose_1.Prop(),
-    swagger_1.ApiProperty(),
-    __metadata("design:type", Array)
-], History.prototype, "chat", void 0);
 History = __decorate([
     mongoose_1.Schema()
 ], History);

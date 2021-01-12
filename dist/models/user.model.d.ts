@@ -10,6 +10,7 @@ export declare class User {
     totalMatch: number;
     wins: number;
     cups: number;
+    block: boolean;
     comparePassword: ComparePasswordFunction;
 }
 declare type ComparePasswordFunction = (this: IUser, candidatePassword: string, cb?: (err: any, isMatch: any) => {}) => void;

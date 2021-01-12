@@ -28,7 +28,7 @@ let UserService = class UserService {
             user,
         });
         if (!iuser) {
-            throw new common_1.HttpException('User not found.', common_1.HttpStatus.UNAUTHORIZED);
+            throw new common_1.HttpException('USER_NOT_FOUND', common_1.HttpStatus.UNAUTHORIZED);
         }
         return iuser;
     }
@@ -64,6 +64,7 @@ let UserService = class UserService {
             cups: input.cups ? input.cups : 0,
             status: false,
             image: null,
+            block: false,
         });
         await createdUser.save();
         return createdUser;
@@ -76,6 +77,12 @@ let UserService = class UserService {
             throw new common_1.HttpException({
                 status: 404,
                 error: 'USER_NOT_FOUND',
+            }, 404);
+        }
+        if (find.block) {
+            throw new common_1.HttpException({
+                status: 404,
+                error: 'ACCOUNT_HAS_BEEN_BLOCKED',
             }, 404);
         }
         let token;
@@ -93,13 +100,20 @@ let UserService = class UserService {
             find.password = input.password;
             await find.save();
             const payload = { user: input.user };
+            const optionAccess = {
+                expiresIn: '2h'
+            };
+            const optionRefresh = {
+                expiresIn: '10day'
+            };
             return {
                 name: find.name,
                 user: find.user,
                 image: find.image,
                 role: find.role,
-                accessToken: this.jwtService.sign(payload),
-                refreshToken: this.jwtService.sign(payload),
+                block: find.block,
+                accessToken: this.jwtService.sign(payload, optionAccess),
+                refreshToken: this.jwtService.sign(payload, optionRefresh),
             };
         }
         else {
@@ -108,6 +122,33 @@ let UserService = class UserService {
                 error: 'PASSWORD_NOT_FOUND',
             }, 422);
         }
+    }
+    async refreshToken(input) {
+        const find = await this.userModel.findOne({
+            user: input,
+        });
+        if (!find) {
+            throw new common_1.HttpException({
+                status: 404,
+                error: 'USER_NOT_FOUND',
+            }, 404);
+        }
+        const payload = { user: input };
+        const optionAccess = {
+            expiresIn: '2h'
+        };
+        const optionRefresh = {
+            expiresIn: '10day'
+        };
+        return {
+            name: find.name,
+            user: find.user,
+            image: find.image,
+            role: find.role,
+            block: find.block,
+            accessToken: this.jwtService.sign(payload, optionAccess),
+            refreshToken: this.jwtService.sign(payload, optionRefresh),
+        };
     }
     async update(input) {
         const iuser = await this.userModel.findOne({
@@ -141,6 +182,7 @@ let UserService = class UserService {
             wins: input.wins ? input.wins : iuser.wins,
             cups: input.cups ? input.cups : iuser.cups,
             image: input.image ? input.image : iuser.image,
+            block: (input.block !== null) ? input.block : iuser.block,
         };
         const result = await this.userModel.findOneAndUpdate({
             user: input.user,
@@ -172,6 +214,20 @@ let UserService = class UserService {
             .map((user) => ({ name: user.name, image: user.image, cups: user.cups }))
             .sort((user1, user2) => user2.cups - user1.cups);
         return listUser;
+    }
+    async findSingleById(id) {
+        const find = await this.userModel.findById({
+            _id: id,
+        });
+        if (!find) {
+            throw new common_1.HttpException({
+                status: 404,
+                error: 'USER_NOT_FOUND',
+            }, 404);
+        }
+        else {
+            return find;
+        }
     }
 };
 UserService = __decorate([

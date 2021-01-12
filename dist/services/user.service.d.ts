@@ -13,6 +13,16 @@ export declare class UserService {
         user: string;
         image: string;
         role: string;
+        block: boolean;
+        accessToken: string;
+        refreshToken: string;
+    }>;
+    refreshToken(input: string): Promise<{
+        name: string;
+        user: string;
+        image: string;
+        role: string;
+        block: boolean;
         accessToken: string;
         refreshToken: string;
     }>;
@@ -28,4 +38,5 @@ export declare class UserService {
         image: string;
         cups: number;
     }[]>;
+    findSingleById(id: any): Promise<IUser>;
 }

@@ -12,6 +12,7 @@ const mongoose_1 = require("@nestjs/mongoose");
 const room_controller_1 = require("../controllers/room.controller");
 const room_service_1 = require("../services/room.service");
 const room_model_1 = require("../models/room.model");
+const user_model_1 = require("../models/user.model");
 let RoomModule = class RoomModule {
 };
 RoomModule = __decorate([
@@ -21,7 +22,13 @@ RoomModule = __decorate([
                     name: room_model_1.Room.name,
                     useFactory: () => {
                         return room_model_1.roomSchema;
-                    }
+                    },
+                },
+                {
+                    name: user_model_1.User.name,
+                    useFactory: () => {
+                        return user_model_1.userSchema;
+                    },
                 }
             ]),
         ],

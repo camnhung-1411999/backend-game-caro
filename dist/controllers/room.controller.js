@@ -21,10 +21,10 @@ let RoomController = class RoomController {
     constructor(appService) {
         this.appService = appService;
     }
-    list() {
+    list(req) {
         return this.appService.list();
     }
-    getRoom(idroom) {
+    getRoom(idroom, req) {
         return this.appService.getRoom(idroom);
     }
     create(req, input) {
@@ -56,15 +56,16 @@ let RoomController = class RoomController {
 };
 __decorate([
     common_1.Get(),
+    __param(0, common_1.Request()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Object)
 ], RoomController.prototype, "list", null);
 __decorate([
     common_1.Get('/:id'),
-    __param(0, common_1.Param('id')),
+    __param(0, common_1.Param('id')), __param(1, common_1.Request()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", Object)
 ], RoomController.prototype, "getRoom", null);
 __decorate([

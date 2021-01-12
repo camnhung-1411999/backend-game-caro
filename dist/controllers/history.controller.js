@@ -22,7 +22,7 @@ let HistoryController = class HistoryController {
     constructor(appService) {
         this.appService = appService;
     }
-    listAll() {
+    listAll(req) {
         return this.appService.listAll();
     }
     listByUser(req) {
@@ -37,8 +37,9 @@ let HistoryController = class HistoryController {
 };
 __decorate([
     common_1.Get('/list'),
+    __param(0, common_1.Request()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Object)
 ], HistoryController.prototype, "listAll", null);
 __decorate([

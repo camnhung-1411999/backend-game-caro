@@ -7,16 +7,19 @@ export declare class UserController {
     private readonly mailer;
     private readonly cloudinary;
     constructor(appService: UserService, mailer: Mailer, cloudinary: CloudinaryService);
-    getAllUsers(): any;
+    getAllUsers(req: any): any;
     me(req: any): any;
-    getOnlineUsers(): any;
+    getUserById(id: string): Promise<User>;
+    refreshToken(req: any): any;
+    getOnlineUsers(req: any): any;
     signup(input: any): Promise<null>;
     subSignup(input: any): Promise<User>;
     resetPassword(input: any): Promise<null>;
     password(input: any): Promise<User>;
+    blockUser(input: any): Promise<User>;
     login(input: any): Promise<any>;
     loginSocial(input: User): Promise<any>;
     update(input: any, req: any, file: any): Promise<any>;
     logout(req: any): Promise<any>;
-    getRankUsers(): any;
+    getRankUsers(req: any): any;
 }

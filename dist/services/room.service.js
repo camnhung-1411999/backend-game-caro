@@ -17,9 +17,11 @@ const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const room_model_1 = require("../models/room.model");
 const mongoose_2 = require("mongoose");
+const user_model_1 = require("../models/user.model");
 let RoomService = class RoomService {
-    constructor(roomModel) {
+    constructor(roomModel, userModel) {
         this.roomModel = roomModel;
+        this.userModel = userModel;
     }
     async list() {
         return this.roomModel.find();
@@ -37,17 +39,22 @@ let RoomService = class RoomService {
         return room;
     }
     async create(input) {
-        const createRoom = new this.roomModel({
-            player1: input.player1,
-            player2: input.player2,
-            viewers: input.viewers,
-            public: input.public,
-            password: input.password,
-        });
-        await createRoom.save();
-        createRoom.idroom = createRoom.id.slice(19, createRoom.id.length);
-        await createRoom.save();
-        return createRoom;
+        const player1 = await this.userModel.findOne({ user: input.player1 });
+        if (player1) {
+            const createRoom = new this.roomModel({
+                player1: { "avatar": player1.image, "username": player1.user, "display_name": player1.name },
+                player2: input.player2,
+                viewers: input.viewers,
+                public: input.public,
+                password: input.password,
+                viewer: [],
+                chat: [],
+            });
+            await createRoom.save();
+            createRoom.idroom = createRoom.id.slice(19, createRoom.id.length);
+            await createRoom.save();
+            return createRoom;
+        }
     }
     async join(input) {
         const iroom = await this.roomModel.findOne({
@@ -104,7 +111,9 @@ let RoomService = class RoomService {
 RoomService = __decorate([
     common_1.Injectable(),
     __param(0, mongoose_1.InjectModel(room_model_1.Room.name)),
-    __metadata("design:paramtypes", [mongoose_2.Model])
+    __param(1, mongoose_1.InjectModel(user_model_1.User.name)),
+    __metadata("design:paramtypes", [mongoose_2.Model,
+        mongoose_2.Model])
 ], RoomService);
 exports.RoomService = RoomService;
 //# sourceMappingURL=room.service.js.map

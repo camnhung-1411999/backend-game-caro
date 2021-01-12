@@ -16,25 +16,40 @@ exports.HistoryService = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const history_model_1 = require("../models/history.model");
+const user_model_1 = require("../models/user.model");
 const mongoose_2 = require("mongoose");
 const moment = require("moment");
 let HistoryService = class HistoryService {
-    constructor(historyModel) {
+    constructor(historyModel, userModel) {
         this.historyModel = historyModel;
+        this.userModel = userModel;
     }
     async listAll() {
         return this.historyModel.find();
     }
     async create(input) {
         const createdDate = moment(Date.now()).format("DD-MM-YYYY HH:mm:ss");
-        console.log('create history data', input);
+        const findWinner = await this.userModel.findOne({
+            user: input.winner,
+        });
+        if (findWinner) {
+            findWinner.totalMatch = findWinner.totalMatch + 1;
+            findWinner.cups = findWinner.cups + 1;
+            findWinner.wins = findWinner.wins + 1;
+        }
+        const findLoser = await this.userModel.findOne({
+            user: input.loser,
+        });
+        if (findLoser) {
+            findLoser.totalMatch = findLoser.totalMatch + 1;
+            findLoser.cups = findLoser.cups - 1;
+        }
         const createHistory = new this.historyModel({
             roomId: input.roomId,
             result: input.result,
             winner: input.winner,
             loser: input.loser,
             datetime: createdDate,
-            chat: input.chat,
         });
         await createHistory.save();
         return createHistory;
@@ -42,7 +57,6 @@ let HistoryService = class HistoryService {
     async findByUsername(input) {
         let username = input;
         const histories = await this.historyModel.find({ $or: [{ winner: username }, { loser: username }] });
-        console.log(histories);
         return histories;
     }
     async findSingByID(input) {
@@ -54,7 +68,9 @@ let HistoryService = class HistoryService {
 HistoryService = __decorate([
     common_1.Injectable(),
     __param(0, mongoose_1.InjectModel(history_model_1.History.name)),
-    __metadata("design:paramtypes", [mongoose_2.Model])
+    __param(1, mongoose_1.InjectModel(user_model_1.User.name)),
+    __metadata("design:paramtypes", [mongoose_2.Model,
+        mongoose_2.Model])
 ], HistoryService);
 exports.HistoryService = HistoryService;
 //# sourceMappingURL=history.service.js.map

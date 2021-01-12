@@ -29,13 +29,19 @@ let UserController = class UserController {
         this.mailer = mailer;
         this.cloudinary = cloudinary;
     }
-    getAllUsers() {
+    getAllUsers(req) {
         return this.appService.getAllUsers();
     }
     me(req) {
         return this.appService.find(req.user.user);
     }
-    getOnlineUsers() {
+    getUserById(id) {
+        return this.appService.findSingleById(id);
+    }
+    refreshToken(req) {
+        return this.appService.refreshToken(req.user.user);
+    }
+    getOnlineUsers(req) {
         return this.appService.getOnlineUsers();
     }
     async signup(input) {
@@ -59,25 +65,23 @@ let UserController = class UserController {
     password(input) {
         return this.appService.update(input);
     }
+    blockUser(input) {
+        return this.appService.update(input);
+    }
     login(input) {
         return this.appService.login(input.data);
     }
     loginSocial(input) {
         return this.appService
-            .postUsers(input)
+            .create(input)
             .then(async (data) => {
-            const user = {
-                user: data.user,
-                password: data.password,
-                type: 'social',
-            };
-            await this.appService.login(user).then((iuser) => {
+            await this.appService.refreshToken(data.user).then((iuser) => {
                 return iuser;
             });
         })
             .catch(() => {
             return this.appService
-                .login({ user: input.user, password: input.password, type: 'social' })
+                .refreshToken(input.user)
                 .then((iuser) => {
                 return iuser;
             });
@@ -85,7 +89,7 @@ let UserController = class UserController {
     }
     async update(input, req, file) {
         const image = await this.cloudinary.upload(file);
-        const data = Object.assign({ user: req.user.user, image: image.url }, input);
+        const data = Object.assign({ user: req.user.user, image: image === null || image === void 0 ? void 0 : image.url }, input);
         return this.appService.update(data);
     }
     logout(req) {
@@ -95,14 +99,15 @@ let UserController = class UserController {
         };
         return this.appService.update(data);
     }
-    getRankUsers() {
+    getRankUsers(req) {
         return this.appService.getListRank();
     }
 };
 __decorate([
     common_1.Get('/list'),
+    __param(0, common_1.Request()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Object)
 ], UserController.prototype, "getAllUsers", null);
 __decorate([
@@ -114,9 +119,25 @@ __decorate([
     __metadata("design:returntype", Object)
 ], UserController.prototype, "me", null);
 __decorate([
-    common_1.Get('/online'),
+    common_1.Get('/getUserById/:id'),
+    __param(0, common_1.Param('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "getUserById", null);
+__decorate([
+    common_1.Get('/refresh'),
+    common_1.UseGuards(user_guard_1.JwtAuthGuard),
+    __param(0, common_1.Request()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Object)
+], UserController.prototype, "refreshToken", null);
+__decorate([
+    common_1.Get('/online'),
+    __param(0, common_1.Request()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Object)
 ], UserController.prototype, "getOnlineUsers", null);
 __decorate([
@@ -147,6 +168,13 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "password", null);
+__decorate([
+    common_1.Put('/block'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "blockUser", null);
 __decorate([
     common_1.Post('/login'),
     __param(0, common_1.Body()),
@@ -193,8 +221,9 @@ __decorate([
 ], UserController.prototype, "logout", null);
 __decorate([
     common_1.Get('/rank'),
+    __param(0, common_1.Request()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Object)
 ], UserController.prototype, "getRankUsers", null);
 UserController = __decorate([

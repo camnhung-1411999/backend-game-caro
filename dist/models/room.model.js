@@ -11,19 +11,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.roomSchema = exports.Room = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
-const user_model_1 = require("./user.model");
 const swagger_1 = require("@nestjs/swagger");
 let Room = class Room {
 };
 __decorate([
-    mongoose_1.Prop({ type: String, ref: user_model_1.User.name }),
+    mongoose_1.Prop({ type: Object }),
     swagger_1.ApiProperty(),
-    __metadata("design:type", String)
+    __metadata("design:type", Object)
 ], Room.prototype, "player1", void 0);
 __decorate([
-    mongoose_1.Prop({ type: String, ref: user_model_1.User.name }),
+    mongoose_1.Prop({ type: Object }),
     swagger_1.ApiProperty(),
-    __metadata("design:type", String)
+    __metadata("design:type", Object)
 ], Room.prototype, "player2", void 0);
 __decorate([
     mongoose_1.Prop(),
@@ -45,6 +44,11 @@ __decorate([
     swagger_1.ApiProperty({ type: [] }),
     __metadata("design:type", Array)
 ], Room.prototype, "viewers", void 0);
+__decorate([
+    mongoose_1.Prop(),
+    swagger_1.ApiProperty({ type: [] }),
+    __metadata("design:type", Array)
+], Room.prototype, "chat", void 0);
 Room = __decorate([
     mongoose_1.Schema()
 ], Room);

@@ -6,6 +6,5 @@ export declare class History {
     winner: string;
     loser: string;
     datetime: string;
-    chat: [];
 }
 export declare const historySchema: mongoose.Schema<any>;

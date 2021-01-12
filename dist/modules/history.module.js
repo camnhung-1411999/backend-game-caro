@@ -12,6 +12,7 @@ const mongoose_1 = require("@nestjs/mongoose");
 const history_controller_1 = require("../controllers/history.controller");
 const history_service_1 = require("../services/history.service");
 const history_model_1 = require("../models/history.model");
+const user_model_1 = require("../models/user.model");
 let HistoryModule = class HistoryModule {
 };
 HistoryModule = __decorate([
@@ -21,6 +22,12 @@ HistoryModule = __decorate([
                     name: history_model_1.History.name,
                     useFactory: () => {
                         return history_model_1.historySchema;
+                    }
+                },
+                {
+                    name: user_model_1.User.name,
+                    useFactory: () => {
+                        return user_model_1.userSchema;
                     }
                 }
             ]),

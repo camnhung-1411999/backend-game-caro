@@ -1717,8 +1717,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/user.model.ts": {
-        "version": "145dfe3cf89ec9bfa8a035adbd65e7041ee683781bc9c77d7abbb4c8bef923c0",
-        "signature": "e293b4523c8c6f794a8c359de19f27fdfa346d8f2e53fdf320df318f7390af30",
+        "version": "f8a0fead8d08d977c5bedce2a05557090ec4ef86e6b74d155f11766177dc947d",
+        "signature": "109d749979c20b6fcb4a8d0e29f0c1eb67bde1e09b997d9c006dfb578f6db19b",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/jsonwebtoken/index.d.ts": {
@@ -1757,8 +1757,8 @@
         "affectsGlobalScope": false
       },
       "../src/services/user.service.ts": {
-        "version": "531f620f3e357559b449c11901f177177a24394ebd609a200d7b1b439d6be2ef",
-        "signature": "177ebc1f4286c03289ea915d87a8254d20cff8a94e5a3058072cdfedc4ec56d9",
+        "version": "b3890ee41c8e63e9451f45f0d7b98327b7762195ec0db07541b49cd5aedd53c7",
+        "signature": "20f9cf04dcd70526abb470fc53033b2f54b770065a279f2ece00e557fa514c93",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/passport/dist/abstract.strategy.d.ts": {
@@ -1857,7 +1857,7 @@
         "affectsGlobalScope": false
       },
       "../src/interface/user.guard.ts": {
-        "version": "51f6e9ac453c6458fb9c440e6ba24f0a49c51869b299905d6ecdceee6e87a437",
+        "version": "0e079a2435c6690081eaedaf9e4cf5a3525e187f5a5dc979084d02eecd4f484f",
         "signature": "f42c6caabd4d66a2df903db5cac2cd88a963f307d701f817cbac11b4a79a2909",
         "affectsGlobalScope": false
       },
@@ -1962,7 +1962,7 @@
         "affectsGlobalScope": false
       },
       "../src/services/cloudinary.service.ts": {
-        "version": "fe5b5507575e0233af5e8b24d019173e01f650740077b09078afb621fe414c33",
+        "version": "60ca12e4da75de2289cced83cd2ba74fb1129cf8ea9faa3578f363183d8b6c40",
         "signature": "9cd484fb50b074471dd8332667a0a6ec3ad09f53a6fb9647b107e42d59ad1c42",
         "affectsGlobalScope": false
       },
@@ -1977,8 +1977,8 @@
         "affectsGlobalScope": true
       },
       "../src/controllers/user.controller.ts": {
-        "version": "bbe30a31e11cf7dd7b330018c9297506e88cb12b76c036cc878b9a617feda2c8",
-        "signature": "045525f0f7514c0b7cc83ce2dfe75cac85407c61964bfdf18b393fc7c9050dc3",
+        "version": "2554f54807d76f6a77170c05c98a85859f52c9d96b5c88d14a404583d6f5953b",
+        "signature": "780e2e4b2fc22c2646c71b34993a1fd75e53670182058984a68b1ba64f29cd8b",
         "affectsGlobalScope": false
       },
       "../src/models/auth.model.ts": {
@@ -2012,18 +2012,18 @@
         "affectsGlobalScope": false
       },
       "../src/modules/user.module.ts": {
-        "version": "d58eefbfc085f92ea4b5d094c50a58e67b7b54ef9b67c0595dacbb46ebfce70d",
+        "version": "170311092adb09945f65e43d37b46ad8abeb42f688a273a78daf0a4377aefa38",
         "signature": "482b8f0d35a3d453500a15b6c6057c1e4c40baa4329b39da9e1026d8e1de4329",
         "affectsGlobalScope": false
       },
       "../src/models/room.model.ts": {
-        "version": "7cc05f17a82fcd8cb405a25e65bf58339a9723ee90469634a0fe187bc2b16b5b",
-        "signature": "c183fc40485e91a564294533f8b67869b9425233b151a5101be0951a34e3e037",
+        "version": "76f963fc66f019b0590a601b8f6e2fd2a7c690aef0c6c83723c38b62a7687704",
+        "signature": "73cc33ebed1e85b27b9e4e799962273df98847382aebca27aadbc68adb9fe186",
         "affectsGlobalScope": false
       },
       "../src/services/room.service.ts": {
-        "version": "72c667ecbbd1f46e486c4463f20fcd6af0afc7f3657ef376443763440acaa4d5",
-        "signature": "6318ec7eea7dbdc04e044865c18e569d12a4266128d6bae1c688f6ec3376be64",
+        "version": "9dda946e72cbc59b852094a45b2b1b4ac8b65da89c06f360e311ccc78cb32023",
+        "signature": "40fb429ccb0010c68185908b678aebbb50e0404013ca29622c42df28f3a1eef7",
         "affectsGlobalScope": false
       },
       "../src/interface/room.interface.ts": {
@@ -2032,18 +2032,18 @@
         "affectsGlobalScope": false
       },
       "../src/controllers/room.controller.ts": {
-        "version": "d73e926a733a332707e22e2b479d19809fe2e13c8ab6b0c20fe9ab60ebb8f2bd",
-        "signature": "1daacb7369bb5407d638b68328d93537954dc1fdd3a749d498bded25679484fb",
+        "version": "d9d52410ca8454018259bf792bc953c788840c2743021b8ea293c8a709a8d589",
+        "signature": "326ff602962632a7941af0b27769f49e7c96ceb18af1e75c581158ed8a4e6811",
         "affectsGlobalScope": false
       },
       "../src/modules/room.module.ts": {
-        "version": "1f3f3ccc7b65aa8e4b0c61b554d9364f5f038c01fa0fdee428317fba0cf9b962",
+        "version": "bdff9b1ddfa697e7b1d7d0e43910f1768b22da09c6119b61c07d2d2691285fb1",
         "signature": "7ebdc6e482327be44f898d355da4b2002c50c4a5b7f4e9bed061d83b5c257fce",
         "affectsGlobalScope": false
       },
       "../src/models/history.model.ts": {
-        "version": "43db6c5909cf440d0555f0b04af591cb6b7112739d75968506c27cd2f73cf947",
-        "signature": "835bb6d8938da24a4ab46429ff24a18f199b2ed6679e06ab705ed6a8ccc17b76",
+        "version": "01aa3e61ff5d63220fcaa8915d271438e87106ceb03694bae4f04248145544a3",
+        "signature": "8da33a571f9ec90dcac4bf04bff57a3c16d8db7043a38243d13f86c1450ce47e",
         "affectsGlobalScope": false
       },
       "../node_modules/moment/ts3.1-typings/moment.d.ts": {
@@ -2052,17 +2052,17 @@
         "affectsGlobalScope": false
       },
       "../src/services/history.service.ts": {
-        "version": "df96841d1bf5ee83a364cadd5e6c0c2fb9e7013846a58e196a72dc7f68f9de05",
-        "signature": "7d243e73b47b9b6946cdd4922c02a484740c75a8471821c1f763f12142f55cc5",
+        "version": "dcbee7a3ad2de23a75c2e145c7e0dd37fcca77999bc27ab956d1b6ed2b7d3954",
+        "signature": "1652245a25a595e0a7da6170bf72ed93048fae427e479d05fe00a6212d5e0d33",
         "affectsGlobalScope": false
       },
       "../src/controllers/history.controller.ts": {
-        "version": "308a7a6c96676d95621275c2b4161e8b888a954e3f9cb767c3f97d179526a00e",
-        "signature": "ffc9385c3896dc94fb008306a9506db7d8e2e50a84d538b1e3cc001716225c35",
+        "version": "505db78532717993e00b2770ed9fe0a06a1cd1d670837ae285c08f29cd911442",
+        "signature": "eba5d5116cf0e64db32de96f370e90289c011385698d84613e2c62e28b628429",
         "affectsGlobalScope": false
       },
       "../src/modules/history.module.ts": {
-        "version": "d54843c3cc9a24c1969530baf3166f1bb9d0f687c3b863b0849716e9006db609",
+        "version": "48a53f7e4105848e3789d94f34ca12c100323307314120f7f3cbd428cf9dde18",
         "signature": "66052dc2960723742617d4e582f4eb8fbb152fcde42bf9904a8bad134bd9a4cd",
         "affectsGlobalScope": false
       },
@@ -2127,8 +2127,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/game.model.ts": {
-        "version": "75931ed27766589f91f6b997050744fcf504d1d796620a4118aa981a51d8176f",
-        "signature": "89aaabd0bd82741ac0b14f8c3d0adfc585145db3eec3ec1e1cf3e077154ca53d",
+        "version": "c23edb99316f52f329d913ee3fd7438fbcf5aa73853b32b2191d9311a1602a3b",
+        "signature": "f9bf60b49ed7ccbd699cf90f53150eb35a2568c2ef32311c6c5088dfbd805736",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/websockets/adapters/ws-adapter.d.ts": {
@@ -2272,17 +2272,17 @@
         "affectsGlobalScope": false
       },
       "../src/socket/room/room.socket.gateway.ts": {
-        "version": "eb7d571aced1827f9a57a519216020936b5a536441f96d0e82de1ef4bb7d9bd9",
-        "signature": "52bae3251d252cd8b585f97ff5767f3aae8eb5589ae844521ae0f6f4d1e0f7f6",
+        "version": "cf3696f1911b1e6c2d4b5be74bb8d653289520b0cadf7eeafbf5f914d74dde43",
+        "signature": "687e9aeb01c983bfa909ca007eb725fd83e4e07fe021e36ef16a7afaea3e4e16",
         "affectsGlobalScope": false
       },
       "../src/socket/room/room.socket.module.ts": {
-        "version": "a01c8da46e1c21af77a2c08f20cb2a7349d8c1367e9b38625023cac752a71674",
+        "version": "ddf3f9f070aa98ac148cb4cfc02b91be9ebc32ede3c6261dfff68d6fc873d96c",
         "signature": "fde6e466f2f43386e67a8cc75f57d3706c7e51d615c9439f1933557bda78bb33",
         "affectsGlobalScope": false
       },
       "../src/socket/user/user.socket.gateway.ts": {
-        "version": "ad24181adc2c9d477d9b075875dc4089abeb5b3a02522cc5982a284df1ed5b5c",
+        "version": "05ab934b2b5fd36efc95eb24516e36e3b73c5844416403eec326d31a9e673aab",
         "signature": "a1adc13d2e36932b8838e468e9e8e9e19f987add2b3319c848bf4a55669534c1",
         "affectsGlobalScope": false
       },
@@ -2292,7 +2292,7 @@
         "affectsGlobalScope": false
       },
       "../src/services/game.service.ts": {
-        "version": "cd7fa697f0c59ec48019ea9be607f95f3bbf27483cef75136879dbf2ef585eba",
+        "version": "75fed3225d7db2e96ce09d72db659dbfb441c277a5201f3891709efe4386d3a4",
         "signature": "58fc7aa0783b079f215d2f7c3e98c7866c3828a221fc574e8bd14005465b4b90",
         "affectsGlobalScope": false
       },
@@ -2527,7 +2527,7 @@
         "affectsGlobalScope": false
       },
       "../src/main.ts": {
-        "version": "d50e5ba3e2d2dc4a3963b28f0db1479c9679e2b6423208dd133b9f7c21389c9c",
+        "version": "35a236032bdf078fa8eccb67463b1c4db070e6e7d7702c4223222601858915fe",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
         "affectsGlobalScope": false
       },
@@ -5002,6 +5002,7 @@
         "../node_modules/@nestjs/mongoose/index.d.ts",
         "../src/controllers/history.controller.ts",
         "../src/models/history.model.ts",
+        "../src/models/user.model.ts",
         "../src/services/history.service.ts"
       ],
       "../src/modules/room.module.ts": [
@@ -5009,6 +5010,7 @@
         "../node_modules/@nestjs/mongoose/index.d.ts",
         "../src/controllers/room.controller.ts",
         "../src/models/room.model.ts",
+        "../src/models/user.model.ts",
         "../src/modules/user.module.ts",
         "../src/services/room.service.ts"
       ],
@@ -5048,13 +5050,15 @@
         "../node_modules/@nestjs/mongoose/index.d.ts",
         "../node_modules/moment/ts3.1-typings/moment.d.ts",
         "../node_modules/mongoose/index.d.ts",
-        "../src/models/history.model.ts"
+        "../src/models/history.model.ts",
+        "../src/models/user.model.ts"
       ],
       "../src/services/room.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/mongoose/index.d.ts",
         "../node_modules/mongoose/index.d.ts",
-        "../src/models/room.model.ts"
+        "../src/models/room.model.ts",
+        "../src/models/user.model.ts"
       ],
       "../src/services/user.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -5069,12 +5073,16 @@
         "../node_modules/@nestjs/websockets/index.d.ts",
         "../node_modules/@types/socket.io/index.d.ts",
         "../node_modules/mongoose/index.d.ts",
-        "../src/models/game.model.ts"
+        "../src/models/game.model.ts",
+        "../src/models/room.model.ts",
+        "../src/models/user.model.ts"
       ],
       "../src/socket/room/room.socket.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/mongoose/index.d.ts",
         "../src/models/game.model.ts",
+        "../src/models/room.model.ts",
+        "../src/models/user.model.ts",
         "../src/socket/room/room.socket.gateway.ts"
       ],
       "../src/socket/user/user.socket.gateway.ts": [
@@ -7104,11 +7112,13 @@
       ],
       "../src/services/history.service.ts": [
         "../node_modules/mongoose/index.d.ts",
-        "../src/models/history.model.ts"
+        "../src/models/history.model.ts",
+        "../src/models/user.model.ts"
       ],
       "../src/services/room.service.ts": [
         "../node_modules/mongoose/index.d.ts",
-        "../src/models/room.model.ts"
+        "../src/models/room.model.ts",
+        "../src/models/user.model.ts"
       ],
       "../src/services/user.service.ts": [
         "../node_modules/@nestjs/jwt/index.d.ts",
@@ -7119,7 +7129,9 @@
         "../node_modules/@nestjs/websockets/index.d.ts",
         "../node_modules/@types/socket.io/index.d.ts",
         "../node_modules/mongoose/index.d.ts",
-        "../src/models/game.model.ts"
+        "../src/models/game.model.ts",
+        "../src/models/room.model.ts",
+        "../src/models/user.model.ts"
       ],
       "../src/socket/user/user.socket.gateway.ts": [
         "../node_modules/@nestjs/websockets/index.d.ts",
