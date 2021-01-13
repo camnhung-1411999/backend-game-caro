@@ -49,6 +49,11 @@ __decorate([
     swagger_1.ApiProperty({ type: [] }),
     __metadata("design:type", Array)
 ], Room.prototype, "chat", void 0);
+__decorate([
+    mongoose_1.Prop(),
+    swagger_1.ApiProperty(),
+    __metadata("design:type", Boolean)
+], Room.prototype, "isPlay", void 0);
 Room = __decorate([
     mongoose_1.Schema()
 ], Room);

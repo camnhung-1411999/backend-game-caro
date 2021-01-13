@@ -13,5 +13,6 @@ export declare class Room {
         avatar: any;
         display_name: any;
     }[];
+    isPlay: boolean;
 }
 export declare const roomSchema: mongoose.Schema<any>;

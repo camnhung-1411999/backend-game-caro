@@ -2017,12 +2017,12 @@
         "affectsGlobalScope": false
       },
       "../src/models/room.model.ts": {
-        "version": "76f963fc66f019b0590a601b8f6e2fd2a7c690aef0c6c83723c38b62a7687704",
-        "signature": "73cc33ebed1e85b27b9e4e799962273df98847382aebca27aadbc68adb9fe186",
+        "version": "94f32a993f2d68348a8702756d5c52e950d3d7b1de4111030637ff74287da294",
+        "signature": "2124c3f3f84abeb0cd0d1c1d2ed1482143f397e449be36f61d5a5052e4edcc58",
         "affectsGlobalScope": false
       },
       "../src/services/room.service.ts": {
-        "version": "9dda946e72cbc59b852094a45b2b1b4ac8b65da89c06f360e311ccc78cb32023",
+        "version": "e6ff1a597dd22b8969669b69fcbb3ce630369039dc5a42119bfa7711a55bb7ab",
         "signature": "40fb429ccb0010c68185908b678aebbb50e0404013ca29622c42df28f3a1eef7",
         "affectsGlobalScope": false
       },
@@ -2272,12 +2272,12 @@
         "affectsGlobalScope": false
       },
       "../src/socket/room/room.socket.gateway.ts": {
-        "version": "cf3696f1911b1e6c2d4b5be74bb8d653289520b0cadf7eeafbf5f914d74dde43",
-        "signature": "687e9aeb01c983bfa909ca007eb725fd83e4e07fe021e36ef16a7afaea3e4e16",
+        "version": "db46efcd79a20ffa4624c95773c8eab68786bb3dc068fac032decfe4b9337050",
+        "signature": "bb1d9602e55829cf7f3ad3ba6ced358ed4b9adaf981e620af2d2cda2f85c4d1d",
         "affectsGlobalScope": false
       },
       "../src/socket/room/room.socket.module.ts": {
-        "version": "ddf3f9f070aa98ac148cb4cfc02b91be9ebc32ede3c6261dfff68d6fc873d96c",
+        "version": "3c2b2109436d37de9677a82b99be4c0a269eafa424ca715666c821059a76a22b",
         "signature": "fde6e466f2f43386e67a8cc75f57d3706c7e51d615c9439f1933557bda78bb33",
         "affectsGlobalScope": false
       },
@@ -2527,7 +2527,7 @@
         "affectsGlobalScope": false
       },
       "../src/main.ts": {
-        "version": "35a236032bdf078fa8eccb67463b1c4db070e6e7d7702c4223222601858915fe",
+        "version": "b8c21ad6decf3ef04acddf4c2625da2b4d740cec8fb8714ed9b4883a7b6afcfe",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
         "affectsGlobalScope": false
       },
@@ -5072,8 +5072,10 @@
         "../node_modules/@nestjs/mongoose/index.d.ts",
         "../node_modules/@nestjs/websockets/index.d.ts",
         "../node_modules/@types/socket.io/index.d.ts",
+        "../node_modules/moment/ts3.1-typings/moment.d.ts",
         "../node_modules/mongoose/index.d.ts",
         "../src/models/game.model.ts",
+        "../src/models/history.model.ts",
         "../src/models/room.model.ts",
         "../src/models/user.model.ts"
       ],
@@ -5081,6 +5083,7 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/mongoose/index.d.ts",
         "../src/models/game.model.ts",
+        "../src/models/history.model.ts",
         "../src/models/room.model.ts",
         "../src/models/user.model.ts",
         "../src/socket/room/room.socket.gateway.ts"
@@ -7130,6 +7133,7 @@
         "../node_modules/@types/socket.io/index.d.ts",
         "../node_modules/mongoose/index.d.ts",
         "../src/models/game.model.ts",
+        "../src/models/history.model.ts",
         "../src/models/room.model.ts",
         "../src/models/user.model.ts"
       ],

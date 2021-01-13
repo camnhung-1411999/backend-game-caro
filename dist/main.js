@@ -17,7 +17,7 @@ async function bootstrap() {
     const document = swagger_1.SwaggerModule.createDocument(app, options);
     swagger_1.SwaggerModule.setup('api', app, document);
     app.useStaticAssets(path_1.join(__dirname, '..', 'static'));
-    await app.listen(8000);
+    await app.listen(4000);
 }
 bootstrap();
 //# sourceMappingURL=main.js.map
