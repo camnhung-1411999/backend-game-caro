@@ -163,7 +163,14 @@ export class UserService {
   async refreshToken(input: string) {
     const find = await this.userModel.findOne({
       user: input,
+    },
+    {
+      status: true,
+    },
+    {
+      new: true,
     });
+    
     if (!find) {
       throw new HttpException(
         {
